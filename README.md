@@ -1,7 +1,11 @@
+CORRER LA APP
+  npm run dev
+
+
 npm create vite@latest
 npm install react-router-dom
 npm install bootstrap
-  npm run dev
+
 
   
 DESPLEGAR EN VERCEL
