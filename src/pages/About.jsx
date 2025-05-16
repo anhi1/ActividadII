@@ -12,13 +12,13 @@ const About = () => {
         </div>
         <div className="carousel-inner rounded shadow">
           <div className="carousel-item active">
-            <img src="/actividadII/1.jpg" className="d-block w-100" alt="Carrusel 1" />
+            <img src="/1.jpg" className="d-block w-100" alt="Carrusel 1" />
           </div>
           <div className="carousel-item">
-            <img src="/actividadII/2.jpg" className="d-block w-100" alt="Carrusel 2" />
+            <img src="/2.jpg" className="d-block w-100" alt="Carrusel 2" />
           </div>
           <div className="carousel-item">
-            <img src="/actividadII/3.jpg" className="d-block w-100" alt="Carrusel 3" />
+            <img src="/3.jpg" className="d-block w-100" alt="Carrusel 3" />
           </div>
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -41,7 +41,7 @@ const About = () => {
       <div className="row align-items-center">
         <div className="col-md-6 mb-4 mb-md-0">
           <img
-            src="/actividadII/2.jpg"
+            src="/2.jpg"
             alt="Actividades de ocio"
             width="90%"
             className="img-fluid rounded shadow"

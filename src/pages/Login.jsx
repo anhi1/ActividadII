@@ -25,7 +25,7 @@ const Login = () => {
       <div className="row w-100">
         <div className="col-md-6 d-none d-md-flex align-items-center justify-content-center">
           <img
-            src="/actividadII/jovenes.jpg"
+            src="/jovenes.jpg"
             alt="Login visual"
             className="img-fluid"
             style={{ maxHeight: "100vh", objectFit: "cover", width: "100%" }}
@@ -35,7 +35,7 @@ const Login = () => {
           <div className="card p-4 shadow w-100" style={{ maxWidth: "400px" }}>
             <div className="text-center mb-4">
               <img
-                src="/actividadII/viajero.gif"
+                src="/viajero.gif"
                 alt="Animación viajero"
                 style={{ height: "110px" }}
               />
