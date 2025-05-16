@@ -1,0 +1,10 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.bg-cream {
+  background-color: #c1efe9; /* tono crema suave */
+}
+.tabla{
+  padding-bottom: 250px;
+}
