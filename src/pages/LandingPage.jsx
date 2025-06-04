@@ -1,32 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import { useStore } from "../hooks/useStore";
 
 const LandingPage = () => {
-  const [storeData, setStoreData] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchStoreData = async () => {
-      try {
-        const response = await fetch(
-          "https://mock.apidog.com/m1/914149-896526-default/store"
-        );
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        setStoreData(data);
-      } catch (err) {
-        console.error("Error fetching data:", err);
-        setError("No se pudo cargar la información de la tienda.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchStoreData();
-  }, []);
+  const { storeData, loading, error } = useStore();
 
   if (loading) return <p>Cargando datos ...</p>;
   if (error) return <p>{error}</p>;
