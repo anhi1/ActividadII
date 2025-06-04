@@ -54,3 +54,6 @@ function App() {
 }
 
 export default App;
+
+// No necesitas modificar nada aquí para el login de usuarios.
+// Tu configuración de rutas y proveedores es correcta.

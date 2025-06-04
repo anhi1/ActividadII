@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import { useUsers } from "../hooks/useUsers";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -7,16 +8,21 @@ const Login = () => {
   const [error, setError] = useState("");
 
   const { login } = useAuth();
+  const { users, loading } = useUsers();
 
   const handleLogin = (e) => {
     e.preventDefault();
 
-    const success = login(email, password);
+    // Busca el usuario por email y password
+    const user = users.find(
+      (u) => u.email === email && u.password === password
+    );
 
-    if (!success) {
+    if (!user) {
       setError("Correo o contraseña incorrectos");
     } else {
       setError("");
+      login(user); // Pasa el usuario completo al contexto
     }
   };
 

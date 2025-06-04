@@ -8,13 +8,10 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  const login = (email, password) => {
-    const validEmail = "user1@gmail.com";
-    const validPassword = "123456";
-
-    if (email === validEmail && password === validPassword) {
+  const login = (user) => {
+    if (user) {
       setIsAuthenticated(true);
-      setUser({ email: validEmail, name: "User 1" });
+      setUser(user);
       navigate("/activities");
       return true;
     } else {

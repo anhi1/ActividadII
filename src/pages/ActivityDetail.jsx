@@ -1,36 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
-
+import { useActivities } from '../hooks/useActivities';
 
 const ActivityDetail = () => {
   const { id } = useParams();
-  const [activity, setActivity] = useState(null);
-  const [error, setError] = useState(null);
+  const { activities, loading, error } = useActivities();
 
-  useEffect(() => {
-    fetch('http://127.0.0.1:3658/m1/914149-896526-default/activities')
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error('No se pudo obtener la lista de actividades');
-        }
-        return res.json();
-      })
-      .then((data) => {
-        const found = data.find((item) => item.activity_id === parseInt(id));
-        if (found) {
-          setActivity(found);
-        } else {
-          setError('Actividad no encontrada');
-        }
-      })
-      .catch((err) => {
-        console.error('Fetch error:', err);
-        setError(err.message);
-      });
-  }, [id]);
+  if (loading) return <p>Cargando...</p>;
+  if (error) return <p className="text-danger">Error: {error.message || error}</p>;
 
-  if (error) return <p className="text-danger">Error: {error}</p>;
-  if (!activity) return <p>Cargando...</p>;
+  // Busca la actividad por activity_id
+  const activity = activities.find(item => item.activity_id === parseInt(id));
+
+  if (!activity) return <p>Actividad no encontrada</p>;
 
   return (
   <div className="container mt-4">
