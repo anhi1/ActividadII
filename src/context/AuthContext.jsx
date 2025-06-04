@@ -33,3 +33,5 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => useContext(AuthContext);
+// No necesitas modificar nada aquí.
+// El método login ya guarda el usuario completo y el contexto funciona correctamente para la autenticación.

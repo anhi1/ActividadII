@@ -6,9 +6,16 @@ const useReservations = (userId) => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
+    if (userId == null) {
+      setReservations([]);
+      setLoading(false);
+      return;
+    }
     fetch("http://127.0.0.1:3658/m1/914149-896526-default/reservations")
       .then(res => res.json())
       .then(data => {
+        // Depuración temporal
+        // console.log("userId:", userId, "reservations:", data);
         const userReservations = data.filter(r => r.user_id == userId);
         setReservations(userReservations);
         setLoading(false);
